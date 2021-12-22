@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width =device-width, initial-scale=1.0" />
+    <title>Window Size</title>
+    <style>
+      .container {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+    </div>
+
+    <script>
+      let box1 = document.querySelector(".box1");
+      const box2 = document.querySelector(".box2");
+      const box3 = document.querySelector(".box3");
+      const box4 = document.querySelector(".box4");
+
+      let windowScreenY = window.screenY;
+      let windowScreenX = window.screenX;
+      let windowOuterWidth = window.outerWidth;
+      let windowOuterHeight = window.outerHeight;
+      let windowInnerWidth = window.innerWidth;
+      let windowInnerHeight = window.innerHeight;
+
+      box1.innerText = `windowInner: ${window.innerWidth}, ${window.innerHeight}`;
+
+      window.addEventListener("resize", () => {
+        let windowInnerWidth = window.innerWidth;
+        let windowInnerHeight = window.innerHeight;
+        box1.innerText = `windowInner: ${window.innerWidth}, ${window.innerHeight}`;
+      });
+    </script>
+  </body>
+</html>
