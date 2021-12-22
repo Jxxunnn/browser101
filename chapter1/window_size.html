@@ -6,39 +6,31 @@
     <meta name="viewport" content="width =device-width, initial-scale=1.0" />
     <title>Window Size</title>
     <style>
-      .container {
+      .box {
+        display: inline-block;
         background-color: blueviolet;
+        padding: 16px;
+        margin-top: 16px;
+        font-size: 48px;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="box1"></div>
-      <div class="box2"></div>
-      <div class="box3"></div>
-      <div class="box4"></div>
-    </div>
+    <div class="box"></div>
 
     <script>
-      let box1 = document.querySelector(".box1");
-      const box2 = document.querySelector(".box2");
-      const box3 = document.querySelector(".box3");
-      const box4 = document.querySelector(".box4");
+      const box = document.querySelector(".box");
 
-      let windowScreenY = window.screenY;
-      let windowScreenX = window.screenX;
-      let windowOuterWidth = window.outerWidth;
-      let windowOuterHeight = window.outerHeight;
-      let windowInnerWidth = window.innerWidth;
-      let windowInnerHeight = window.innerHeight;
+      function updateBox() {
+        box.innerHTML = `
+      window.screen: ${window.screenX}, ${window.screenY} <br/>
+      window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+      window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+      documentElement: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+      }
 
-      box1.innerText = `windowInner: ${window.innerWidth}, ${window.innerHeight}`;
-
-      window.addEventListener("resize", () => {
-        let windowInnerWidth = window.innerWidth;
-        let windowInnerHeight = window.innerHeight;
-        box1.innerText = `windowInner: ${window.innerWidth}, ${window.innerHeight}`;
-      });
+      window.addEventListener("resize", updateBox);
+      updateBox();
     </script>
   </body>
 </html>
