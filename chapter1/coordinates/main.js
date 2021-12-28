@@ -5,27 +5,25 @@ const tag = document.querySelector(".tag");
 const vertical = document.querySelector(".vertical");
 const horizontal = document.querySelector(".horizontal");
 
-document.addEventListener("mousemove", (event) => {
-  const x = event.clientX;
-  const y = event.clientY;
+addEventListener("load", () => {
+  const targetRect = target.getBoundingClientRect();
+  const targetHalfWidth = targetRect.width / 2;
+  const targetHalfHeight = targetRect.height / 2;
 
-  vertical.style.left = `${x}px`;
-  horizontal.style.top = `${y}px`;
+  document.addEventListener("mousemove", (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
 
-  target.style.left = `${x}px`;
-  target.style.top = `${y}px`;
+    vertical.style.transform = `translateX(${x}px)`;
 
-  tag.style.left = `${x}px`;
-  tag.style.top = `${y}px`;
-  tag.innerHTML = `${x}px, ${y}px`;
+    horizontal.style.transform = `translateY(${y}px)`;
 
-  aim.style.left = event.pageX - aim.offsetWidth / 2 + "px";
-  aim.style.top = event.pageY - aim.offsetHeight / 2 + "px";
+    target.style.transform = `translate(${x - targetHalfWidth}px, ${
+      y - targetHalfHeight
+    }px)`;
 
-  vertical.style.left = event.pageX - aim.offsetWidth / 2 + 100 + "px";
-  horizontal.style.top = event.pageY - aim.offsetHeight / -50 + "px";
+    tag.style.transform = `translate(${x + 20}px, ${y + 20}px)`;
 
-  coordinate.innerHTML = `x: ${event.pageX - aim.offsetWidth / 2}px, y: ${
-    event.pageY - aim.offsetHeight / 2
-  }px`;
+    tag.innerHTML = `${x}px, ${y}px`;
+  });
 });
