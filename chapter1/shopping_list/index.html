@@ -4,29 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- <script src="main.js" defer></script> -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Shopping List</title>
   </head>
   <body>
-    <section>
-      <header class="header">
-        <h1 class="header__title">Shopping List</h1>
-      </header>
-      <main class="main">
-        <ul class="main__list"></ul>
-      </main>
-      <div class="button__box">
-        <button class="button__add" type="button" name="add">
-          <i class="fas fa-plus-circle"></i>
+    <section class="list">
+      <header class="header">Shopping List</header>
+      <ul class="items">
+        <li class="item-row">
+          <div class="item">
+            <span class="item__name">Egg</span>
+            <button class="item__delete">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <div class="item__divider"></div>
+        </li>
+      </ul>
+
+      <footer class="footer">
+        <input type="text" class="footer__input" />
+        <button class="footer__button">
+          <i class="fas fa-plus"></i>
         </button>
-      </div>
+      </footer>
     </section>
   </body>
 </html>
