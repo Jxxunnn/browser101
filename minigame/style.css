@@ -1,0 +1,119 @@
+:root {
+  /* 크기나 색상같은 것들은 변수로 설정해서 하는 것이 좋음. */
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+body {
+  text-align: center;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 500px;
+  background: url(./assets/img/background.png) center/cover;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.game__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.game__button {
+  width: 60px;
+  height: 60px;
+  background-color: wheat;
+  border: 4px solid black;
+  font-size: 24px;
+  transition: transform 300ms ease-in;
+}
+
+.game__button:hover {
+  transform: scale(1.1);
+}
+
+.game__timer {
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 20px;
+  font-size: 32px;
+  margin-top: 8px;
+  visibility: hidden;
+}
+
+.game__score {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
+  font-size: 36px;
+  line-height: 41px;
+  background-color: darksalmon;
+  border: 3px solid black;
+  border-radius: 50%;
+  color: white;
+  visibility: hidden;
+}
+
+.game__field {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  position: relative;
+}
+
+.game__title {
+  font-size: 80px;
+  margin-top: 40px;
+}
+
+.game__title:hover {
+  transform: scale(1.1);
+}
+
+.pop-up {
+  width: 400px;
+  height: 140px;
+  padding: 20px;
+  opacity: 0.7;
+  background-color: #00000090;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  margin: auto;
+  transform: translateY(-150%);
+}
+
+.pop-up--hide {
+  display: none;
+}
+
+.pop-up__refresh {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  background-color: wheat;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+.pop-up__message {
+  display: block;
+  font-size: 38px;
+}
