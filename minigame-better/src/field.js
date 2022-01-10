@@ -1,5 +1,7 @@
 "use strict";
 
+import * as sound from "./sound.js";
+
 const carrotSound = new Audio("./assets/sound/carrot_pull.mp3");
 const CARROT_SIZE = 80;
 
@@ -9,6 +11,7 @@ export default class Field {
     this.bugCount = bugCount;
     this.field = document.querySelector(".game__field");
     this.fieldRect = this.field.getBoundingClientRect();
+
     this.field.addEventListener("click", this.onClick);
   }
 
@@ -40,22 +43,18 @@ export default class Field {
     }
   }
 
-  onClick(event) {
+  onClick = (event) => {
     const target = event.target;
     if (target.matches(".carrot")) {
       target.remove();
-      playSound(carrotSound);
+      sound.playCarrot();
       this.onItemClick && this.onItemClick();
     } else if (target.matches(".bug")) {
       this.onItemClick && this.onItemClick("bug");
     }
-  }
+  };
 }
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
 }
